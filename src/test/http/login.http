@@ -1,0 +1,19 @@
+POST localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "account": "admin",
+  "password": "test"
+}
+
+### 失败登录
+POST localhost:8080/api/login
+Content-Type: application/json
+
+{
+"account": "admin",
+"password": "admin"
+}
+
+### 成功登录
+

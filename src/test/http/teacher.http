@@ -1,0 +1,68 @@
+POST localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "account": "2022212968",
+  "password": "root"
+}
+
+### 修改密码
+PATCH localhost:8080/api/teacher/updatePassword
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzQ5NTYyOTEsImV4cCI6MTczNTA0MjY5MX0.OL-PYVNnyp03YZkmMadogRyNyeMV7y_HHh5vsEYSoWQ
+Content-Type: application/json
+
+{
+  "password": "123456"
+
+}
+### 获取默认实验室预约表
+GET localhost:8080/api/lab/schedule
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVEVBQ0hFUiIsInRpZCI6IjEzMjAzMjQxNDUxNDIzMzM0NDAiLCJpYXQiOjE3MzQ5NjYzODQsImV4cCI6MTczNTA1Mjc4NH0.VhxB411SEzdfIeMeV_0QmrMPX9ng_RCuHjqS33P9y4g
+
+### 获取实验室预约表
+POST localhost:8080/api/lab/schedule
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVEVBQ0hFUiIsInRpZCI6IjEzMjAzMjQxNDUxNDIzMzM0NDAiLCJpYXQiOjE3MzQ5NjYzODQsImV4cCI6MTczNTA1Mjc4NH0.VhxB411SEzdfIeMeV_0QmrMPX9ng_RCuHjqS33P9y4g
+Content-Type: application/json
+
+{
+  "labId": "L002",
+  "week": "3"
+}
+
+
+### 获取默认实验室信息
+GET localhost:8080/api/lab/info
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUwMTc3MDAsImV4cCI6MTczNTEwNDEwMH0.quHs_qW_K-enX6HJv885DJ8CiZAU9c8EGsaBhX4wX1k
+
+### 获取实验室信息
+POST localhost:8080/api/lab/info
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUwMTc3MDAsImV4cCI6MTczNTEwNDEwMH0.quHs_qW_K-enX6HJv885DJ8CiZAU9c8EGsaBhX4wX1k
+Content-Type: application/json
+
+{
+  "id": "L003"
+}
+
+### 获取实验室负责人信息
+GET localhost:8080/api/lab/manager
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUwMjA5MzQsImV4cCI6MTczNTEwNzMzNH0.FGMjPbqvmcN57esyZB40itjQrFKrj_x67F8wCLsLT3A
+
+### 获取实验室负责人信息
+POST localhost:8080/api/lab/manager
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUwMjA5MzQsImV4cCI6MTczNTEwNzMzNH0.FGMjPbqvmcN57esyZB40itjQrFKrj_x67F8wCLsLT3A
+Content-Type: application/json
+
+{
+  "id": "L003"
+}
+
+
+### 获取实验室列表
+GET localhost:8080/api/lab/labs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUwMjA5MzQsImV4cCI6MTczNTEwNzMzNH0.FGMjPbqvmcN57esyZB40itjQrFKrj_x67F8wCLsLT3A
+
+
+
+
+
+

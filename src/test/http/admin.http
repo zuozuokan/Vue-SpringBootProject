@@ -1,0 +1,23 @@
+POST localhost:8080/api/admin/addteacher
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM0OTU2NTExLCJleHAiOjE3MzUwNDI5MTF9.6YTr9n8kPw3re-uYfJ_dlEVGMPm4Rvdz8ii1G7Yt3eg
+Content-Type: application/json
+
+{
+  "name": "前端老师",
+  "email": "jokn.doe@example.com",
+  "phone": "1325555665",
+  "major": "软件工程",
+  "account": "2022212969",
+  "password": "root",
+  "role": "TEACHER"
+
+}
+
+### 管理员基于账号重置密码
+PUT localhost:8080/api/admin/teachers/2022212968/password
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM0OTU2NTExLCJleHAiOjE3MzUwNDI5MTF9.6YTr9n8kPw3re-uYfJ_dlEVGMPm4Rvdz8ii1G7Yt3eg
+
+### 管理员获取所有教师
+GET localhost:8080/api/admin/teachers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM0OTU2NTExLCJleHAiOjE3MzUwNDI5MTF9.6YTr9n8kPw3re-uYfJ_dlEVGMPm4Rvdz8ii1G7Yt3eg
+
