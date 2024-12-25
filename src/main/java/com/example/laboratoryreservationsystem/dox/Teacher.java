@@ -31,6 +31,7 @@ public class Teacher {
     private String phone;
     private String major;
     private String account;
+    private String webName;
     // 序列号的时候忽略
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

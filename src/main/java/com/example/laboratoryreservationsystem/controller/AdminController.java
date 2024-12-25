@@ -1,6 +1,7 @@
 package com.example.laboratoryreservationsystem.controller;
 
 import com.example.laboratoryreservationsystem.dox.Teacher;
+import com.example.laboratoryreservationsystem.dto.TeacherInfo;
 import com.example.laboratoryreservationsystem.service.TeacherService;
 import com.example.laboratoryreservationsystem.vo.ResultVO;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +35,13 @@ public class AdminController {
     public ResultVO getTeachers(){
         List<Teacher> teachers =  teacherService.getAllTeachers();
         return ResultVO.success(teachers);
+    }
+
+    // 基于工号删除教师
+    @PostMapping("delteacher")
+    public ResultVO delTeacher(@RequestBody TeacherInfo teacherInfo){
+        teacherService.deleteTeacher(teacherInfo.getAccount());
+        return ResultVO.ok();
     }
 
 }

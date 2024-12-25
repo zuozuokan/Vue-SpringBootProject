@@ -16,11 +16,13 @@ import org.springframework.data.relational.core.mapping.Table;
 @Builder
 @Table(name = "TeacherCourse")  // 映射数据库中的 TeacherCourse 表
 public class TeacherCourse {
-    private String teacherId;
+    private String teacherAccount;
     private String courseId;
     private String semester;
-    private String major;
     private Integer courseNums;
     private String currentClass;
+    private String courseName;
+    private Integer Hours;
+    private Integer ExperimentHours;
 
 }

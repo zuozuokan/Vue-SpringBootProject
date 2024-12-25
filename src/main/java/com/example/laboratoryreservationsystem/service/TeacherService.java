@@ -65,11 +65,11 @@ public class TeacherService {
         log.debug("管理员更新密码成功！");
     }
 
-    // 基于教师id,查询自己的课表
+    // 基于教师 account,查询自己的课表
     @Transactional
-    public List<TeacherCourse> getCourseByTeacher(String teacherId){
+    public List<TeacherCourse> getCourseByTeacher(String account){
 
-        return teacherCourseRepository.findCourseByTeacherId(teacherId);
+        return teacherCourseRepository.findCourseByTeacherAccount(account);
     }
 
     // 超级管理员添加教师
@@ -87,6 +87,31 @@ public class TeacherService {
         log.debug("数据库返回ok！");
         return teacherRepository.findAllTeachers();
 
+    }
+
+    // 超级管理员删除教师
+    public void deleteTeacher(String account) {
+        // 先删除课程
+        teacherRepository.deleteByTeacherCourseAccount(account);
+        // 再删除教师
+        teacherRepository.deleteByTeacherAccount(account);
+
+    }
+
+    // 教师添加课程
+    public void addCourse(String teacherAccount, String courseId, String semester, int courseNums, String currentClass,String courseName,int experimentHours,int hours) {
+        teacherCourseRepository.addCourseByTeacherAccount(teacherAccount, courseId, semester, courseNums, currentClass,courseName,experimentHours,hours);
+
+    }
+    // 教师更新基本信息
+    public void updateTeacherInfo(String teacherwebName, String teacherEmail, String teacherPhone,String teacherAccount) {
+
+        teacherRepository.updateTeacherInfo(teacherwebName, teacherEmail, teacherPhone,teacherAccount);
+    }
+
+    // 基于工号和课程号删除课程
+    public void deleteCourseByTeacherAccountAndCourseId(String teacherAccount, String courseId) {
+        teacherCourseRepository.deleteCourseByTeacherAccountAndCourseId(teacherAccount, courseId);
     }
 
 

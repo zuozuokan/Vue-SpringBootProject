@@ -26,3 +26,16 @@ SELECT * FROM Teacher t WHERE t.account = '2022212968';
 -- 找到所有教师(必须全表扫描)
 explain
 SELECT * FROM Teacher;
+
+update Teacher t set t.web_name = 'zuozuokan', t.email = 'zzz@163.com', t.phone = '123456' where t.account = '2022212968'
+
+SELECT * FROM TeacherCourse WHERE teacher_account = '2022212968'
+
+
+INSERT INTO TeacherCourse(teacher_account,course_id,semester,course_nums,current_class,course_Name)
+VALUES ('2022212968','C007','2025-2026','23','1班','大学物理')
+
+DELETE FROM TeacherCourse WHERE teacher_account = '2022212968' AND course_id = 'C006'
+
+INSERT INTO TeacherCourse(teacher_account,course_id,semester,course_nums,current_class,course_name,experiment_hours,hours)
+VALUES (:teacherAccount,:courseId,:semester,:courseNums,:currentClass,:courseName,:experimentHours,:hours)

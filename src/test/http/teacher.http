@@ -8,7 +8,7 @@ Content-Type: application/json
 
 ### 修改密码
 PATCH localhost:8080/api/teacher/updatePassword
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzQ5NTYyOTEsImV4cCI6MTczNTA0MjY5MX0.OL-PYVNnyp03YZkmMadogRyNyeMV7y_HHh5vsEYSoWQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUxNDI5NTAsImV4cCI6MTczNTIyOTM1MH0.b0XNIMPb2RZnnkT1rSExFpY7g7Tsd8kNmhcvBqk_5x8
 Content-Type: application/json
 
 {
@@ -60,6 +60,53 @@ Content-Type: application/json
 ### 获取实验室列表
 GET localhost:8080/api/lab/labs
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUwMjA5MzQsImV4cCI6MTczNTEwNzMzNH0.FGMjPbqvmcN57esyZB40itjQrFKrj_x67F8wCLsLT3A
+
+### 教师添加课程
+POST localhost:8080/api/teacher/addCourse
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUxMTE5MzQsImV4cCI6MTczNTE5ODMzNH0.alVkjnBhxKR97GFy2hthtYKyw7wFA0ZHIuMrn7mK5o8
+Content-Type: application/json
+
+{
+  "teacherAccount": "2022212968",
+  "courseName": "大学物理",
+  "courseId": "C007",
+  "semester": "2025-2026",
+  "courseNums": 23,
+  "currentClass": "1班",
+  "experimentHours": 2,
+  "hours": 2
+}
+
+### 更新自己基本信息
+POST localhost:8080/api/teacher/updateInfo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUxMTE5MzQsImV4cCI6MTczNTE5ODMzNH0.alVkjnBhxKR97GFy2hthtYKyw7wFA0ZHIuMrn7mK5o8
+Content-Type: application/json
+
+{
+  "account": "2022212968",
+  "webName": "做做看",
+  "email": "zk2074217155@163.com",
+  "password": "1234567890"
+}
+
+### 拿到老师的课程
+POST localhost:8080/api/teacher/getCourses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUxMTE5MzQsImV4cCI6MTczNTE5ODMzNH0.alVkjnBhxKR97GFy2hthtYKyw7wFA0ZHIuMrn7mK5o8
+Content-Type: application/json
+
+{
+  "teacherAccount": "2022212968"
+}
+
+### 删除课程
+POST localhost:8080/api/teacher/delCourse
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUxMTE5MzQsImV4cCI6MTczNTE5ODMzNH0.alVkjnBhxKR97GFy2hthtYKyw7wFA0ZHIuMrn7mK5o8
+Content-Type: application/json
+
+{
+  "teacherAccount": "2022212968",
+  "courseId": "C007"
+}
 
 
 

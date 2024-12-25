@@ -24,15 +24,19 @@ CREATE TABLE if not exists Course (
 
 -- 教师课程表 (TeacherCourse)
 CREATE TABLE if not exists TeacherCourse (
-     Teacher_ID char(19) NOT NULL,                          -- 教师ID
+     Teacher_Account char(19) NOT NULL,                          -- 教师工号
+     Course_Name varchar(20),
      Course_ID char(19) NOT NULL,                           -- 课程ID
      Semester VARCHAR(10) NOT NULL,                  -- 学期
-     Major VARCHAR(15),                              -- 专业
      Course_Nums INT DEFAULT 0,                        -- 选课人数
      Current_Class VARCHAR(30),                              -- 上课班级
-     PRIMARY KEY (Teacher_ID, Course_ID),              -- 复合主键
-     FOREIGN KEY (Teacher_ID) REFERENCES Teacher(id),
-     FOREIGN KEY (Course_ID) REFERENCES Course(id)
+     Hours INT,                              -- 课程学时
+     Experiment_Hours INT,                   -- 实验学时
+     PRIMARY KEY (Teacher_Account, Course_ID),              -- 复合主键
+     FOREIGN KEY (Teacher_Account) REFERENCES Teacher(Account),
+     FOREIGN KEY (Course_ID) REFERENCES Course(id),
+     INDEX (Teacher_Account)
+
 );
 
 
