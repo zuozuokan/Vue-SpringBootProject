@@ -2,10 +2,13 @@ package com.example.laboratoryreservationsystem.service;
 
 import com.example.laboratoryreservationsystem.dox.Teacher;
 import com.example.laboratoryreservationsystem.dox.TeacherCourse;
+import com.example.laboratoryreservationsystem.dto.LabReservation;
 import com.example.laboratoryreservationsystem.exception.XException;
+import com.example.laboratoryreservationsystem.repository.LabRepository;
+import com.example.laboratoryreservationsystem.repository.LabReservationRepository;
 import com.example.laboratoryreservationsystem.repository.TeacherCourseRepository;
 import com.example.laboratoryreservationsystem.repository.TeacherRepository;
-import com.example.laboratoryreservationsystem.vo.ResultVO;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -23,6 +27,8 @@ public class TeacherService {
     private final TeacherRepository teacherRepository;
     private final PasswordEncoder passwordEncoder;
     private final TeacherCourseRepository teacherCourseRepository;
+    private final LabRepository labRepository;
+    private final LabReservationRepository labReservationRepository;
 
     // 基于教师id查找教师
     public Teacher getTeacherById(String id){
@@ -113,6 +119,49 @@ public class TeacherService {
     public void deleteCourseByTeacherAccountAndCourseId(String teacherAccount, String courseId) {
         teacherCourseRepository.deleteCourseByTeacherAccountAndCourseId(teacherAccount, courseId);
     }
+
+    // 基于工号和课程号查询课程
+    public TeacherCourse getCourseByTeacherAccountAndCourseId(String teacherAccount, String courseId) {
+         TeacherCourse teacherCourse = teacherCourseRepository.findCourseByTeacherAccountAndCourseId(teacherAccount, courseId);
+         if(teacherCourse != null){
+             return teacherCourse;
+         }else{
+             return null;
+         }
+    }
+
+    // 教师添加预约
+    public void addReservation(String teacherAccount, String courseId, String labId, String teacherName, String courseName, String tempReservation, String specifics, String week) {
+        try {
+            // 使用 ObjectMapper 将字符串 specifics 转换为 JSON 对象
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            // 这里转为 Map，或者可以选择转为 JSONObject 等
+            Map<String, Object> specificsMap = objectMapper.readValue(specifics, Map.class);
+            String jsonString = objectMapper.writeValueAsString(specificsMap);
+//            log.debug("specificsMap：" + jsonString);
+//            log.debug("未执行");
+            // 调用 repository 层插入数据
+            labReservationRepository.addReservation(teacherAccount, courseId, labId, teacherName, courseName, tempReservation, jsonString, week);
+//            log.debug("已执行");
+        } catch (Exception e) {
+            // 处理 JSON 转换异常
+            e.printStackTrace();
+        }
+    }
+    // 基于教师工号查询对应的预约信息
+    public List<LabReservation> getReservationByTeacherAccount(String teacherAccount) {
+        return labReservationRepository.findReservationByTeacherAccount(teacherAccount);
+    }
+
+    // 删除某个预约
+    public void deleteReservationById(String tA,String week,String labId,String xingQi,String period) {
+        labReservationRepository.deleteReservationByAllInfo(tA,week,labId,xingQi,period);
+    }
+
+
+
+
 
 
 

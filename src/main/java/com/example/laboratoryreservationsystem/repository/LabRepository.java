@@ -1,6 +1,7 @@
 package com.example.laboratoryreservationsystem.repository;
 
 import com.example.laboratoryreservationsystem.dox.Lab;
+import com.example.laboratoryreservationsystem.dto.LabDto;
 import com.example.laboratoryreservationsystem.dto.LabReservation;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -20,6 +21,12 @@ public interface LabRepository extends CrudRepository<Lab, String> {
         SELECT id, name FROM Lab
 """)
     List<Lab> findAllLabIdAndName();
+
+    //查询满足条件的实验室
+    @Query("""
+        SELECT * FROM Lab l WHERE l.capacity >= :capacity
+""")
+    List<LabDto> findLabByCapacity(int capacity);
 
 
 

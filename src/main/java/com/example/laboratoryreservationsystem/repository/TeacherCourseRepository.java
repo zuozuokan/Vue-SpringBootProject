@@ -34,4 +34,10 @@ public interface TeacherCourseRepository extends CrudRepository<TeacherCourse, S
        DELETE FROM TeacherCourse WHERE teacher_account = :teacherAccount AND course_id = :courseId
 """)
     void deleteCourseByTeacherAccountAndCourseId(String teacherAccount, String courseId);
+
+    // 根据教师工号和课程号查询课程
+    @Query("""
+        SELECT * FROM TeacherCourse WHERE teacher_account = :teacherAccount AND course_id = :courseId
+""")
+    TeacherCourse findCourseByTeacherAccountAndCourseId(String teacherAccount, String courseId);
 }

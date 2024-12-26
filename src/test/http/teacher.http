@@ -109,6 +109,68 @@ Content-Type: application/json
 }
 
 
+### 基于容量查询实验室
+POST localhost:8080/api/teacher/getLabByCapacity
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUxMTE5MzQsImV4cCI6MTczNTE5ODMzNH0.alVkjnBhxKR97GFy2hthtYKyw7wFA0ZHIuMrn7mK5o8
+Content-Type: application/json
+
+{
+  "capacity": 35
+}
+
+### 基于工号和课程号查询课程是否存在
+POST localhost:8080/api/teacher/checkCourse
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUxMTE5MzQsImV4cCI6MTczNTE5ODMzNH0.alVkjnBhxKR97GFy2hthtYKyw7wFA0ZHIuMrn7mK5o8
+Content-Type: application/json
+
+{
+  "teacherAccount": "2022212968",
+  "courseId": "C002"
+}
+
+### 教师添加预约
+POST localhost:8080/api/teacher/addReservation
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUxMTE5MzQsImV4cCI6MTczNTE5ODMzNH0.alVkjnBhxKR97GFy2hthtYKyw7wFA0ZHIuMrn7mK5o8
+Content-Type: application/json
+
+{
+  "teacherAccount": "2022212968",
+  "courseId": "C002",
+  "labId": "L001",
+  "teacherName": "哈哈哈哈哈哈",
+  "courseName": "计算机组成原理",
+  "tempReservation": "true",
+  "specifics": "{\"week\":\"周四\",\"period\":\"1-2\"}",
+  "week": "5"
+
+}
+
+### 基于工号查询预约
+POST localhost:8080/api/teacher/getReservation
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUxOTk0MjUsImV4cCI6MTczNTI4NTgyNX0.P6CA6Q7x28wqlJYcPpWfO-lDTH9s_fgULvbC8BhM4Ec
+Content-Type: application/json
+
+{
+  "teacherAccount": "2022212968"
+}
+
+### 删除某个预约
+POST localhost:8080/api/teacher/deleteReservation
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzI0MTQ1MTQyMzMzNDQwIiwicm9sZSI6IlRFQUNIRVIiLCJpYXQiOjE3MzUxMTE5MzQsImV4cCI6MTczNTE5ODMzNH0.alVkjnBhxKR97GFy2hthtYKyw7wFA0ZHIuMrn7mK5o8
+Content-Type: application/json
+
+{
+  "teacherAccount": "2022212968",
+  "week": "5",
+  "labId": "L001",
+  "xingQi": "周四",
+  "period": "1-2"
+}
+
+
+
+
+
 
 
 

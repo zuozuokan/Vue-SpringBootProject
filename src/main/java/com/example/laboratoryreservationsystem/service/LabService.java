@@ -2,6 +2,7 @@ package com.example.laboratoryreservationsystem.service;
 
 import com.example.laboratoryreservationsystem.dox.Lab;
 import com.example.laboratoryreservationsystem.dox.LabManage;
+import com.example.laboratoryreservationsystem.dto.LabDto;
 import com.example.laboratoryreservationsystem.dto.LabReservation;
 import com.example.laboratoryreservationsystem.repository.LMRepository;
 import com.example.laboratoryreservationsystem.repository.LabRepository;
@@ -41,6 +42,12 @@ public class LabService {
         return labRepository.findAllLabIdAndName();
 
     }
+    // 基于容量查询实验室
+    public List<LabDto> getLabByCapacity(int capacity) {
+         return labRepository.findLabByCapacity(capacity);
+    }
+
+
 
 
 }
