@@ -2,7 +2,7 @@
 CREATE TABLE if not exists Teacher (
        id char(19) PRIMARY KEY,         -- 教师ID，主键
        Name VARCHAR(20) NOT NULL,                      -- 姓名
-       Email VARCHAR(25) UNIQUE NOT NULL,              -- 邮箱
+       Email VARCHAR(25) UNIQUE NULL,              -- 邮箱
        Phone VARCHAR(15),                         -- 联系电话
        Major VARCHAR(20),                               -- 专业
        Account VARCHAR(30) UNIQUE NOT NULL,   -- 账号

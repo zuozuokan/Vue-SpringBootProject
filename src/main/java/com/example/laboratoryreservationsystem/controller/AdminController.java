@@ -5,10 +5,12 @@ import com.example.laboratoryreservationsystem.dto.TeacherInfo;
 import com.example.laboratoryreservationsystem.service.TeacherService;
 import com.example.laboratoryreservationsystem.vo.ResultVO;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/admin/")
 @RequiredArgsConstructor
@@ -19,6 +21,7 @@ public class AdminController {
     // 添加教师
     @PostMapping("addteacher")
     public ResultVO postTeacher(@RequestBody Teacher teacher){
+        log.debug(teacher.toString());
         teacherService.addTeacher(teacher);
         return ResultVO.ok();
 

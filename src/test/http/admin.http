@@ -1,14 +1,14 @@
 ### 管理员添加教师
 POST localhost:8080/api/admin/addteacher
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MTM4MzU0LCJleHAiOjE3MzUyMjQ3NTR9.EvtLbYRlychLO6NH7hweN-3CcybdMenD2U9xholJOZU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
 Content-Type: application/json
 
 {
-  "name": "前端老师",
-  "email": "jokn.doe@example.com",
+  "name": "王波",
+  "email": "jssokn.doe@example.com",
   "phone": "1325555665",
   "major": "软件工程",
-  "account": "2022212969",
+  "account": "20222129999",
   "password": "root",
   "role": "TEACHER"
 
