@@ -9,7 +9,8 @@ CREATE TABLE if not exists Teacher (
        Password CHAR(60) NOT NULL,   -- 密码
        role char(10) not null,					-- 角色
        create_time datetime default current_timestamp, -- 创建时间
-       update_time datetime DEFAULT current_timestamp on update current_timestamp -- 更新时间
+       update_time datetime DEFAULT current_timestamp on update current_timestamp, -- 更新时间
+       web_name varchar(20) null
 
 );
 

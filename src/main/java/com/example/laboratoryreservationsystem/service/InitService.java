@@ -20,18 +20,21 @@ public class InitService {
     public void init(){
         String account = "admin";
         String password = "admin";
-        long count = teacherRepository.count();
-        if (count > 0) {
+        Teacher teacher = teacherRepository.findByTeacherAccount("admin");
+        if(teacher != null){
             return;
         }
-        Teacher t = Teacher.builder()
-                .name("超级管理员")
-                .email("admin@163.com")
-                .account(account)
-                .password(passwordEncoder.encode(password))
-                .role(Teacher.ADMIN)
-                .build();
+        else{
+            Teacher t = Teacher.builder()
+                    .name("超级管理员")
+                    .email("admin@163.com")
+                    .account(account)
+                    .password(passwordEncoder.encode(password))
+                    .role(Teacher.ADMIN)
+                    .build();
 
-        teacherRepository.save(t);
+            teacherRepository.save(t);
+        }
+
     }
 }
