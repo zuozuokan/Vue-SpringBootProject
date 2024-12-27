@@ -8,6 +8,7 @@ import com.example.laboratoryreservationsystem.repository.LabRepository;
 import com.example.laboratoryreservationsystem.repository.LabReservationRepository;
 import com.example.laboratoryreservationsystem.repository.TeacherCourseRepository;
 import com.example.laboratoryreservationsystem.repository.TeacherRepository;
+import com.example.laboratoryreservationsystem.vo.ResultVO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -131,23 +132,9 @@ public class TeacherService {
     }
 
     // 教师添加预约
-    public void addReservation(String teacherAccount, String courseId, String labId, String teacherName, String courseName, String tempReservation, String specifics, String week) {
-        try {
-            // 使用 ObjectMapper 将字符串 specifics 转换为 JSON 对象
-            ObjectMapper objectMapper = new ObjectMapper();
-
-            // 这里转为 Map，或者可以选择转为 JSONObject 等
-            Map<String, Object> specificsMap = objectMapper.readValue(specifics, Map.class);
-            String jsonString = objectMapper.writeValueAsString(specificsMap);
-//            log.debug("specificsMap：" + jsonString);
-//            log.debug("未执行");
-            // 调用 repository 层插入数据
-            labReservationRepository.addReservation(teacherAccount, courseId, labId, teacherName, courseName, tempReservation, jsonString, week);
-//            log.debug("已执行");
-        } catch (Exception e) {
-            // 处理 JSON 转换异常
-            e.printStackTrace();
-        }
+    public void addReservation(String teacherAccount, String courseId, String labId, String teacherName, String courseName, String tempReservation, Object specifics, String week) {
+        // 调用 repository 层插入数据
+        labReservationRepository.addReservation(teacherAccount, courseId, labId, teacherName, courseName, tempReservation, specifics, week);
     }
     // 基于教师工号查询对应的预约信息
     public List<LabReservation> getReservationByTeacherAccount(String teacherAccount) {
@@ -157,6 +144,10 @@ public class TeacherService {
     // 删除某个预约
     public void deleteReservationById(String tA,String week,String labId,String xingQi,String period) {
         labReservationRepository.deleteReservationByAllInfo(tA,week,labId,xingQi,period);
+    }
+    // 查询某个预约是否存在
+    public LabReservation isReservationExist(String week, String xingQi, String period, String labId) {
+        return labReservationRepository.findReservationByLabId(week, xingQi, period, labId);
     }
 
 

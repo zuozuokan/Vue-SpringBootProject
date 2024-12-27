@@ -39,5 +39,13 @@ public interface LabReservationRepository extends CrudRepository<LabReservation,
     void deleteReservationByAllInfo(String teacherAccount, String week, String ladId, String xingQi,String period);
 
 
+    // 查询某个实验室的预约是否存在
+    @Query("""
+        select * from Reservation r where Week = :week and Specifics ->> '$.week' = :xingQi and Specifics ->> '$.period' = :period and Lab_ID = :labId;                                                                                                                                                                   
+    """)
+    LabReservation findReservationByLabId(String week,String xingQi,String period,String labId);
+
+
+
 
 }
