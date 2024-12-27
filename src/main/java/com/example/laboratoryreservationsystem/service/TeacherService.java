@@ -1,13 +1,9 @@
 package com.example.laboratoryreservationsystem.service;
 
-import com.example.laboratoryreservationsystem.dox.Teacher;
-import com.example.laboratoryreservationsystem.dox.TeacherCourse;
+import com.example.laboratoryreservationsystem.dox.*;
 import com.example.laboratoryreservationsystem.dto.LabReservation;
 import com.example.laboratoryreservationsystem.exception.XException;
-import com.example.laboratoryreservationsystem.repository.LabRepository;
-import com.example.laboratoryreservationsystem.repository.LabReservationRepository;
-import com.example.laboratoryreservationsystem.repository.TeacherCourseRepository;
-import com.example.laboratoryreservationsystem.repository.TeacherRepository;
+import com.example.laboratoryreservationsystem.repository.*;
 import com.example.laboratoryreservationsystem.vo.ResultVO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +26,8 @@ public class TeacherService {
     private final TeacherCourseRepository teacherCourseRepository;
     private final LabRepository labRepository;
     private final LabReservationRepository labReservationRepository;
+    private final LMRepository lmRepository;
+    private final CourseRepository courseRepository;
 
     // 基于教师id查找教师
     public Teacher getTeacherById(String id){
@@ -90,8 +88,6 @@ public class TeacherService {
     // 找到所有教师
     @Transactional
     public List<Teacher> getAllTeachers(){
-
-        log.debug("数据库返回ok！");
         return teacherRepository.findAllTeachers();
 
     }
@@ -148,6 +144,83 @@ public class TeacherService {
     // 查询某个预约是否存在
     public LabReservation isReservationExist(String week, String xingQi, String period, String labId) {
         return labReservationRepository.findReservationByLabId(week, xingQi, period, labId);
+    }
+
+    // 超级管理员添加实验室
+    public void addLab(String id, String name, String staffId, int capacity, String configuration, String status) {
+        labRepository.addLab(id, name, staffId, capacity, configuration, status);
+    }
+
+    // 超级管理员删除实验室
+    public void deleteLab(String id) {
+        labRepository.deleteLab(id);
+    }
+
+    // 超级管理员添加实验室管理人员
+    public void addLM(String id, String name, String email, String position, String phone) {
+        lmRepository.addLM(id, name, email, position, phone);
+    }
+
+    // 超级管理员删除实验室管理人员
+    public void deleteLM(String id) {
+        lmRepository.delLM(id);
+
+    }
+
+    // 超级管理员添加课程
+    public void addCourse(String id, int hours, int experiment_hours, String name, String description) {
+        courseRepository.addCourse(id, hours, experiment_hours, name, description);
+
+    }
+
+    // 超级管理员删除课程
+    public void deleteCourse(String id) {
+        courseRepository.deleteCourse(id);
+    }
+
+    // 超级管理员获取课程
+    public List<Course> findAllCourse() {
+        return courseRepository.findAllCourse();
+    }
+    // 超级管理员获取实验室
+    public List<Lab> findAllLab() {
+        return labRepository.findAllLab();
+
+    }
+    // 超级管理员获取实验室管理人员
+    public List<LabManage> findAllLM() {
+        return lmRepository.findAllLM();
+    }
+    // 基于实验室负责任人id删除他对应实验室的信息
+    public void deleteLabByStaffId(String id) {
+        labRepository.deleteLabByStaffId(id);
+    }
+
+    // 基于实验室id删除对应的所有预约表
+    public void deleteReservationByLabId(String id) {
+        labReservationRepository.deleteReservationByLabId(id);
+    }
+    // 基于课程id删除对应的所有教师课程表
+    public void deleteTeacherCourseByCourseId(String id) {
+        teacherCourseRepository.deleteCourseByCourseId(id);
+    }
+    // 基于课程id删除对应的所有预约表
+    public void deleteReservationByCourseId(String id) {
+        labReservationRepository.deleteReservationByCourseId(id);
+
+    }
+
+    // 基于教师工号删除教师课程表
+    public void deleteTeacherCourseByTeacherId(String id) {
+        teacherCourseRepository.deleteCourseByTeacherAccount(id);
+    }
+    // 基于教师工号删除预约表
+    public void deleteReservationByTeacherId(String id) {
+        labReservationRepository.deleteReservationByTeacherAccount(id);
+    }
+    // 基于教工id删除负责人表
+    public void deleteLabManageByStaffId(String id) {
+        lmRepository.deleteLMById(id);
     }
 
 

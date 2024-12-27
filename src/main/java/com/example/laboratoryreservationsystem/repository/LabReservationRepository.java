@@ -4,10 +4,11 @@ import com.example.laboratoryreservationsystem.dto.LabReservation;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Repository
 public interface LabReservationRepository extends CrudRepository<LabReservation, String> {
     // 查询对应实验室预约情况
     @Query("""
@@ -45,7 +46,29 @@ public interface LabReservationRepository extends CrudRepository<LabReservation,
     """)
     LabReservation findReservationByLabId(String week,String xingQi,String period,String labId);
 
+    // 基于实验室id删除对应的所有预约表
+    @Modifying
+    @Transactional
+    @Query("""
+        DELETE FROM Reservation r WHERE r.lab_id = :labId;
+""")
+    void deleteReservationByLabId(String labId);
 
+    // 基于课程id删除对应的所有预约表
+    @Modifying
+    @Transactional
+    @Query("""
+        DELETE FROM Reservation r WHERE r.course_id = :courseId;
+""")
+    void deleteReservationByCourseId(String courseId);
+
+    // 基于教师账号删除对应的所有预约表
+    @Modifying
+    @Transactional
+    @Query("""
+        DELETE FROM Reservation r WHERE r.teacher_account = :teacherAccount;
+""")
+    void deleteReservationByTeacherAccount(String teacherAccount);
 
 
 }

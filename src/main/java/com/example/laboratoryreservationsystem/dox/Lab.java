@@ -21,11 +21,11 @@ import org.springframework.data.relational.core.mapping.Table;
 public class Lab {
     public enum Status {
         Available,    // 可用
+        NotAvailable,  //使用中
         Maintenance   // 维护中
     }
 
     @Id
-    @CreatedBy
     private String id;
     private String name;
     private String staffId;

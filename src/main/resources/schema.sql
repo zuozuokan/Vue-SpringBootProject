@@ -40,14 +40,13 @@ CREATE TABLE if not exists TeacherCourse (
 
 );
 
-
 -- 实验室负责人员表 (LabManage)
 CREATE TABLE if not exists LabManage (
      id char(19) PRIMARY KEY,          -- 负责人员ID，主键
      Name VARCHAR(20) NOT NULL,                      -- 姓名
-     Position VARCHAR(20),                            -- 职位
-     Email VARCHAR(25) UNIQUE NOT NULL,              -- 邮箱
-     Phone VARCHAR(15)                          -- 联系电话
+     Position VARCHAR(20) ,                            -- 职位
+     Email VARCHAR(25) UNIQUE null,              -- 邮箱
+     Phone VARCHAR(15) null                       -- 联系电话
 );
 
 -- 实验室表 (Laboratory)
@@ -57,7 +56,7 @@ CREATE TABLE if not exists Lab (
        Staff_ID char(19) NOT NULL,                            -- 负责人ID
        Capacity INT NULL,                           -- 实验室容量
        Configuration TEXT,                              -- 实验室配置介绍
-       Status ENUM('Available', 'InUse', 'Maintenance') DEFAULT 'Available', -- 实验室状态
+       Status ENUM('Available', 'NotAvailable', 'Maintenance') DEFAULT 'Available', -- 实验室状态
        FOREIGN KEY (Staff_ID) REFERENCES LabManage(id)
     );
 
@@ -81,19 +80,3 @@ CREATE TABLE IF NOT EXISTS Reservation (
     index(Course_ID)
 
 );
-
-# INSERT INTO Reservation (Teacher_Account, Course_ID, Lab_ID, Teacher_Name, Course_Name, Temp_Reservation, Reservation_Date, Specifics, Week)
-# VALUES
-#     ('admin', 'C001', 'L001', '张三', '数学导论', FALSE, NOW(), '{"week": "周二", "period": "1-2"}', 1),
-#     ('2022212968', 'C002', 'L002', '李四', '线性代数', FALSE, NOW(), '{"week": "周二", "period": "3-4"}', 1),
-#     ('2022212969', 'C003', 'L003', '王五', '高等数学', FALSE, NOW(), '{"week": "周三", "period": "5-6"}', 2),
-#     ('zhangsan', 'C004', 'L004', '张三', '计算机基础', FALSE, NOW(), '{"week": "周四", "period": "7-8"}', 2),
-#     ('lisi', 'C005', 'L005', '李四', '数据结构', TRUE, NOW(), '{"week": "周五", "period": "9-10"}', 3),
-#     ('wangwu', 'C006', 'L006', '王五', '操作系统', TRUE, NOW(), '{"week": "周五", "period": "11-12"}', 3),
-#     ('sunqi', 'C007', 'L007', '孙七', '软件工程', FALSE, NOW(), '{"week": "周二", "period": "1-2"}', 4),
-#     ('admin', 'C008', 'L008', '张三', '数据库原理', FALSE, NOW(), '{"week": "周三", "period": "3-4"}', 4),
-#     ('2022212968', 'C001', 'L001', '李四', '计算机网络', TRUE, NOW(), '{"week": "周四", "period": "5-6"}', 5),
-#     ('2022212969', 'C002', 'L002', '王五', '人工智能', TRUE, NOW(), '{"week": "周五", "period": "7-8"}', 5);
-#
-
-

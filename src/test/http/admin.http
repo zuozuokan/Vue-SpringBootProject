@@ -31,4 +31,83 @@ Content-Type: application/json
 PUT localhost:8080/api/admin/teachers/2022212968/password
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM0OTU2NTExLCJleHAiOjE3MzUwNDI5MTF9.6YTr9n8kPw3re-uYfJ_dlEVGMPm4Rvdz8ii1G7Yt3eg
 
+### 管理员添加实验室
+POST localhost:8080/api/admin/addlab
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+Content-Type: application/json
+
+{
+  "id": "L111",
+  "name": "锦绣203",
+  "staffId": "L001",
+  "capacity": 20,
+  "configuration": "4090配置",
+  "status": "Available"
+}
+
+### 管理员添加实验室管理人员
+POST localhost:8080/api/admin/addlm
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+Content-Type: application/json
+
+{
+  "id": "L012",
+  "name": "贝吉塔",
+  "email": "zhangsan@163.com",
+  "position": "教授",
+  "phone": "1234567890"
+}
+
+### 管理员添加课程
+POST localhost:8080/api/admin/addcourse
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+Content-Type: application/json
+
+{
+  "id": "C112",
+  "hours": 40,
+  "experimentHours": 20,
+  "name": "概率论",
+  "description": "这是一门重要的数学课程"
+}
+
+### 管理员删除实验室
+POST localhost:8080/api/admin/dellab
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+Content-Type: application/json
+
+{
+  "id": "L111"
+}
+
+### 管理员删除实验室负责人
+POST localhost:8080/api/admin/dellm
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+Content-Type: application/json
+
+{
+  "id": "L111"
+}
+
+### 管理员删除课程
+POST localhost:8080/api/admin/delcourse
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+Content-Type: application/json
+
+{
+  "id": "C112"
+}
+
+### 管理员获取课程
+GET localhost:8080/api/admin/getcourses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+
+### 管理员获取实验室
+GET localhost:8080/api/admin/getlabs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+
+### 管理员获取实验室负责人
+GET localhost:8080/api/admin/getlms
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+
 
