@@ -28,8 +28,8 @@ Content-Type: application/json
 }
 
 ### 管理员基于账号重置密码
-PUT localhost:8080/api/admin/teachers/2022212968/password
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM0OTU2NTExLCJleHAiOjE3MzUwNDI5MTF9.6YTr9n8kPw3re-uYfJ_dlEVGMPm4Rvdz8ii1G7Yt3eg
+PUT localhost:8080/api/admin/teachers/2022212999/password
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIyMTg2NjI2MjIwMDgxMTUyIiwiaWF0IjoxNzM1Mzc3NTcwLCJleHAiOjE3MzU0NjM5NzB9.xO_VIJVMNN8ZHfIRcMdOr2ma3WT3Ub32to0g75u-YIU
 
 ### 管理员添加实验室
 POST localhost:8080/api/admin/addlab
