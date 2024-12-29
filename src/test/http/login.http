@@ -1,3 +1,4 @@
+### 超级管理员失败登录
 POST localhost:8080/api/login
 Content-Type: application/json
 
@@ -6,7 +7,7 @@ Content-Type: application/json
   "password": "test"
 }
 
-### 失败登录
+### 超级管理员成功登录
 POST localhost:8080/api/login
 Content-Type: application/json
 
@@ -15,5 +16,5 @@ Content-Type: application/json
 "password": "admin"
 }
 
-### 成功登录
+
 

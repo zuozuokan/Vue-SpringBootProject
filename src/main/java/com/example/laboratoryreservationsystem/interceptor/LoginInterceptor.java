@@ -27,16 +27,14 @@ public class LoginInterceptor implements HandlerInterceptor {
         }
 
         // 获取请求头中的Authorization
-        String token = request.getHeader("Authorization");
+        String token = request.getHeader("token");
 
         // 判断Authorization头是否为空或者没有以 "Bearer " 开头
-        if (token == null || !token.startsWith("Bearer ")) {
+        if (token == null) {
             logger.warn("Authorization token is missing or invalid.");
             throw XException.builder().code(Code.UNAUTHORIZED).message("无法接收到token,请先登录").build();
         }
 
-        // 提取实际的token（去掉"Bearer "）
-        token = token.substring(7);
 
         try {
             // 解码Token

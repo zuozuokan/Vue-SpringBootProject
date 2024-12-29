@@ -1,26 +1,27 @@
-### 管理员添加教师
+### 超级管理员管理员添加教师
 POST localhost:8080/api/admin/addteacher
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIyMTg2NjI2MjIwMDgxMTUyIiwiaWF0IjoxNzM1NDU5Mzc0LCJleHAiOjE3MzU1NDU3NzR9.beZpSqTQr15GyTjmpaccUN3NMEHdhQ8iB8VYMf6GXrE
 Content-Type: application/json
 
 {
-  "name": "王波",
-  "email": "jssokn.doe@example.com",
+  "name": "王波222333",
+  "email": "jssokn21.doe@example.com",
   "phone": "1325555665",
   "major": "软件工程",
-  "account": "20222129999",
+  "account": "20222129229299",
   "password": "root",
   "role": "TEACHER"
 
 }
 
+
 ### 管理员获取所有教师
 GET localhost:8080/api/admin/teachers
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MTM4MzU0LCJleHAiOjE3MzUyMjQ3NTR9.EvtLbYRlychLO6NH7hweN-3CcybdMenD2U9xholJOZU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIyMTg2NjI2MjIwMDgxMTUyIiwiaWF0IjoxNzM1NDU5Mzc0LCJleHAiOjE3MzU1NDU3NzR9.beZpSqTQr15GyTjmpaccUN3NMEHdhQ8iB8VYMf6GXrE
 
 ### 管理员删除对应教师
 POST  localhost:8080/api/admin/delteacher
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM1MDUwNTY4LCJleHAiOjE3MzUxMzY5Njh9.rFLiWXI8XplblLKszW8snxhpialVjPJI6PGfyJNh6Nc
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzM1MDUwNTY4LCJleHAiOjE3MzUxMzY5Njh9.rFLiWXI8XplblLKszW8snxhpialVjPJI6PGfyJNh6Nc
 Content-Type: application/json
 
 {
@@ -29,11 +30,11 @@ Content-Type: application/json
 
 ### 管理员基于账号重置密码
 PUT localhost:8080/api/admin/teachers/2022212999/password
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIyMTg2NjI2MjIwMDgxMTUyIiwiaWF0IjoxNzM1Mzc3NTcwLCJleHAiOjE3MzU0NjM5NzB9.xO_VIJVMNN8ZHfIRcMdOr2ma3WT3Ub32to0g75u-YIU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIyMTg2NjI2MjIwMDgxMTUyIiwiaWF0IjoxNzM1Mzc3NTcwLCJleHAiOjE3MzU0NjM5NzB9.xO_VIJVMNN8ZHfIRcMdOr2ma3WT3Ub32to0g75u-YIU
 
 ### 管理员添加实验室
 POST localhost:8080/api/admin/addlab
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
 Content-Type: application/json
 
 {
@@ -47,7 +48,7 @@ Content-Type: application/json
 
 ### 管理员添加实验室管理人员
 POST localhost:8080/api/admin/addlm
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
 Content-Type: application/json
 
 {
@@ -60,7 +61,7 @@ Content-Type: application/json
 
 ### 管理员添加课程
 POST localhost:8080/api/admin/addcourse
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
 Content-Type: application/json
 
 {
@@ -73,7 +74,7 @@ Content-Type: application/json
 
 ### 管理员删除实验室
 POST localhost:8080/api/admin/dellab
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
 Content-Type: application/json
 
 {
@@ -82,7 +83,7 @@ Content-Type: application/json
 
 ### 管理员删除实验室负责人
 POST localhost:8080/api/admin/dellm
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
 Content-Type: application/json
 
 {
@@ -91,7 +92,7 @@ Content-Type: application/json
 
 ### 管理员删除课程
 POST localhost:8080/api/admin/delcourse
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
 Content-Type: application/json
 
 {
@@ -100,14 +101,15 @@ Content-Type: application/json
 
 ### 管理员获取课程
 GET localhost:8080/api/admin/getcourses
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIyMTg2NjI2MjIwMDgxMTUyIiwiaWF0IjoxNzM1NDY2ODc3LCJleHAiOjE3MzU1NTMyNzd9.uTvGnMRsRPXFYnJZMu54Ia6lRpKtqfpmFnxUD1CLFts
 
 ### 管理员获取实验室
 GET localhost:8080/api/admin/getlabs
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
 
 ### 管理员获取实验室负责人
 GET localhost:8080/api/admin/getlms
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIwMzIzNjI0Njc1MzQ0Mzg0IiwiaWF0IjoxNzM1MjcxODgzLCJleHAiOjE3MzUzNTgyODN9.hvib80egAiTbD5UaElU7nGss0XuV8LYgLdL73ZkUaXU
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJ0aWQiOiIxMzIyMTg2NjI2MjIwMDgxMTUyIiwiaWF0IjoxNzM1NDU5MzIxLCJleHAiOjE3MzU1NDU3MjF9.q2uA6owuJrl2ycUg-Iuy1ByOVY0I_vjEpvSiQSAKfME
+
 
 
