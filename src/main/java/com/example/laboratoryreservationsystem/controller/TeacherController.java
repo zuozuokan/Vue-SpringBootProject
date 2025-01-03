@@ -1,6 +1,7 @@
 package com.example.laboratoryreservationsystem.controller;
 
 
+import com.example.laboratoryreservationsystem.dox.Course;
 import com.example.laboratoryreservationsystem.dox.Lab;
 import com.example.laboratoryreservationsystem.dox.Teacher;
 import com.example.laboratoryreservationsystem.dox.TeacherCourse;
@@ -122,6 +123,17 @@ public class TeacherController {
         teacherService.deleteReservationById(dr.getTeacherAccount(),dr.getWeek(),dr.getLabId(),dr.getXingQi(),dr.getPeriod());
         return ResultVO.ok();
     }
+
+    // 教师获取课程
+    @GetMapping("getcourses")
+    public ResultVO getCourse(){
+        List<Course> courses = teacherService.findAllCourse();
+        return ResultVO.success(courses);
+    }
+
+
+
+
 
 
 }

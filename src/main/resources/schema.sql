@@ -57,8 +57,9 @@ CREATE TABLE if not exists Lab (
        Capacity INT NULL,                           -- 实验室容量
        Configuration TEXT,                              -- 实验室配置介绍
        Status ENUM('Available', 'NotAvailable', 'Maintenance') DEFAULT 'Available', -- 实验室状态
-       FOREIGN KEY (Staff_ID) REFERENCES LabManage(id)
-    );
+       FOREIGN KEY (Staff_ID) REFERENCES LabManage(id),
+       INDEX (Capacity)
+);
 
 
 -- 预约表 (Reservation)
@@ -75,8 +76,10 @@ CREATE TABLE IF NOT EXISTS Reservation (
    Week varchar(5) NOT NULL,                     -- 预约的周次
    unique((cast(Specifics ->> '$.week' as char(5)) collate utf8mb4_bin),
        (cast(Specifics ->> '$.period' as char(8)) collate utf8mb4_bin),
-    Week,Lab_ID),
-    index(Teacher_Account),
-    index(Course_ID)
+           Week,Lab_ID),
+   index(Teacher_Account),
+   index(Course_ID)
 
 );
+
+

@@ -168,6 +168,12 @@ Content-Type: application/json
 }
 
 
+### 教师获取课程
+GET localhost:8080/api/teacher/getcourses
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVEVBQ0hFUiIsInRpZCI6IjEzMjIxNzk2MjIyNjUwNzc3NjAiLCJpYXQiOjE3MzU4MDU0NDIsImV4cCI6MTczNTg5MTg0Mn0.fjlwwpAeLdLPyTUQf3HScXkCU71Y8-rhoguy5SMEjS8
+
+
+
 
 
 

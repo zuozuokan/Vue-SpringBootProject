@@ -165,3 +165,6 @@ INSERT INTO Reservation (Teacher_Account, Course_ID, Lab_ID, Teacher_Name, Cours
  ('2022212977', 'C009', 'L009', '丁磊', '信息安全', 'FALSE', NOW(), '{"week": "周二", "period": "5-6"}', '9'),
  ('2022212978', 'C010', 'L010', '曹国伟', '操作系统课程设计', 'FALSE', NOW(), '{"week": "周三", "period": "7-8"}', '10');
 
+explain
+SELECT * FROM Lab l WHERE l.capacity >= 20;
+
